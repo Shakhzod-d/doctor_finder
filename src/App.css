@@ -1,38 +1,214 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Boxed body content */
+.container-boxed {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Full-width header */
+.full-width-header {
+  width: 100%;
+  background-color: white;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header Icons */
+.location-dropdown .dropdown-toggle,
+.language-dropdown .dropdown-toggle,
+.profile-button {
+  background: transparent;
+  border: none; /* Remove border */
+  color: #333; /* Icon color */
+}
+
+.search-button {
+  border: none; /* Remove border */
+  background: transparent; /* Make background transparent */
+  color: #333; /* Icon color */
+}
+
+/* Full-width footer */
+.full-width-footer {
+  width: 100%;
+  background-color: rgb(0 47 52);
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Footer links */
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: rgb(93, 111, 231);
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Logo and header styling */
+.logo-text {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.search-box {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px 10px;  /* Increase top and bottom padding for height */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-height: 45px; /* Set a minimum height for the search box */
+}
+
+.input-group-text {
+  background-color: transparent; /* Optional: make the background transparent */
+  border: none; /* Remove border if necessary */
+  padding: 0; /* Remove padding */
+}
+
+.location-dropdown .dropdown-toggle {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 45px;
+}
+
+.location-dropdown-menu {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.location-search-input {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popular-locations h6 {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.popular-locations .dropdown-item {
+  padding: 10px;
+  color: #333;
+}
+
+.language-dropdown .dropdown-toggle {
+  padding: 10px 15px;
+  height: auto;
+}
+
+.language-dropdown .dropdown-menu {
+  padding: 0;
+}
+
+.language-dropdown .dropdown-item {
+  padding: 8px 10px;
+}
+
+.login-button {
+  background-color: #95a6b8; /* Primary color */
+  border: none; /* Remove border */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Adjust padding for size */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for effects */
+}
+
+/* Hover effect */
+.login-button:hover {
+  background-color: #195aa0; /* Darker shade on hover */
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+.specialists-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  justify-content: space-between; /* Space items evenly */
+  padding: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+}
+
+.specialist-item {
+  width: calc(16.66% - 10px); /* 100% / 6 items minus margin */
+  padding: 25px 10px 10px 10px;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 10px; /* Margin for spacing between rows */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.specialist-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.specialist-name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333; /* Equivalent to @color/text_v_1 */
+}
+
+.text-left {
+  text-align: left;
+  margin-bottom: 10px; /* Space below heading */
+}
+
+/* Adjusting icon size for better visibility */
+.fa-map-marker-alt,
+.fa-search,
+.fa-language,
+.fa-user {
+  font-size: 1.5rem; /* Adjust size as needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .full-width-header {
+    padding: 5px 0; /* Reduce padding for small screens */
   }
-  to {
-    transform: rotate(360deg);
+
+  .logo-text {
+    font-size: 1.25rem; /* Smaller font size on mobile */
+  }
+
+  .location-dropdown, .language-dropdown, .profile-button {
+    font-size: 0.9rem; /* Adjust font size */
+  }
+
+  .search-box {
+    width: 100%;
+    padding: 10px; /* Adjust padding */
   }
 }
