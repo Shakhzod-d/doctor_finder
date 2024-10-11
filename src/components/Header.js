@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
-import { Dropdown, Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
+import React, { useState } from "react";
+import {
+  Dropdown,
+  Form,
+  Button,
+  Container,
+  Row,
+  Col,
+  InputGroup,
+} from "react-bootstrap";
+import { TiThMenu } from "react-icons/ti";
 
-const Header = ({ logo }) => {
-  const [search, setSearch] = useState('');
-  const popularLocations = ['Kerala', 'Tamil Nadu', 'Punjab', 'Maharashtra'];
-  const [language, setLanguage] = useState('English'); // State for selected language
+const Header = ({ logo, setOpenNavModal }) => {
+  const [search, setSearch] = useState("");
+  const popularLocations = ["Kerala", "Tamil Nadu", "Punjab", "Maharashtra"];
+  const [language, setLanguage] = useState("English"); // State for selected language
 
   return (
     <header className="full-width-header py-3">
       <Container fluid>
         <Row className="align-items-center">
           {/* Logo or Fallback Text */}
-          <Col xs={12} md={2} className="text-center text-md-left">
+          <Col xs={12} md={2} className="text-center ">
             {logo ? (
-              <img src={logo} alt="Doctor Finder Logo" width="150" className="app-logo" />
+              <img
+                src={logo}
+                alt="Doctor Finder Logo"
+                width="150"
+                className="app-logo"
+              />
             ) : (
-              <h2 className="logo-text">Doctor Finder</h2> // Fallback text
+              <div className="header-title">
+              <h2 className="logo-text">Doctor Finder</h2> 
+              <span className="burger" onClick={() => setOpenNavModal(true)}>
+              <TiThMenu />
+            </span>
+              </div>
             )}
           </Col>
 
@@ -23,7 +42,8 @@ const Header = ({ logo }) => {
           <Col xs={12} md={2} className="location-dropdown-box">
             <Dropdown className="location-dropdown">
               <Dropdown.Toggle variant="light" id="location-dropdown">
-                <i className="fa fa-map-marker" aria-hidden="true"></i> Search city or area
+                <i className="fa fa-map-marker" aria-hidden="true"></i> Search
+                city or area
               </Dropdown.Toggle>
 
               <Dropdown.Menu className="location-dropdown-menu">
@@ -41,7 +61,8 @@ const Header = ({ logo }) => {
                   <h6 className="text-muted px-3">POPULAR LOCATIONS</h6>
                   {popularLocations.map((location, index) => (
                     <Dropdown.Item key={index}>
-                      <i className="fa fa-map-marker" aria-hidden="true"></i> {location}
+                      <i className="fa fa-map-marker" aria-hidden="true"></i>{" "}
+                      {location}
                     </Dropdown.Item>
                   ))}
                 </div>
@@ -50,7 +71,7 @@ const Header = ({ logo }) => {
           </Col>
 
           {/* Search Input */}
-          <Col xs={12} md={5} className="d-flex flex-column flex-md-row">
+          <Col xs={12} md={5} className="d-flex flex-column ">
             <InputGroup>
               <Form.Control
                 type="text"
@@ -60,21 +81,34 @@ const Header = ({ logo }) => {
             </InputGroup>
           </Col>
 
-          <Col xs={12} md={1} className="d-flex flex-column flex-md-row">
-              <Dropdown className="language-dropdown">
-                <Dropdown.Toggle variant="light" id="language-dropdown">
-                  {language}
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={() => setLanguage('English')}>English</Dropdown.Item>
-                  <Dropdown.Item onClick={() => setLanguage('Bengali')}>Bengali</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+          <Col xs={12} md={1} className="d-flex flex-column ">
+            <Dropdown className="language-dropdown">
+              <Dropdown.Toggle variant="light" id="language-dropdown">
+                {language}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={() => setLanguage("English")}>
+                  English
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setLanguage("Bengali")}>
+                  Bengali
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Col>
 
           {/* Login/Register Menu */}
-          <Col xs={12} md={1} className="text-center text-md-right mt-3 mt-md-0">
-            <Button variant='light' className="login-button">Login</Button>
+          <Col
+            xs={12}
+            md={1}
+            className="Large devices :d-none text-center text-md-right mt-3 mt-md-0"
+          >
+            <Button variant="light" className="login-button">
+              Login
+            </Button>
+            <span className="header-menu" onClick={() => setOpenNavModal(true)}>
+              <TiThMenu />
+            </span>
           </Col>
         </Row>
       </Container>
